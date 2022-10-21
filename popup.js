@@ -26,8 +26,10 @@ function sanitize(string){
 
 // Request update for Notes list background.js
 chrome.runtime.sendMessage({action: 'update'}, (response)=>{
-    console.log('Retrieving notes')
-    if(response.notes != null){
+
+    if(response.notes.length != 0){
+        console.log(response.notes)
+        console.log('Retrieving notes')
         
         // Update toggle
         plaintext.checked = response.plaintext
@@ -40,10 +42,11 @@ chrome.runtime.sendMessage({action: 'update'}, (response)=>{
         }
         
     }else{
+        console.log('Try retrieving notes again')
         // Try again to retrieve Notes
         // This happens when the extension wakes up from sleep, and the systemState is not restored quickly enough
         setTimeout(() => {
-            console.log('Try retrieving notes again')
+            
             chrome.runtime.sendMessage({action: 'update'}, (response)=>{
 
                 // Set toggle
