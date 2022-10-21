@@ -1,0 +1,308 @@
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+div[type=text] {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Use to show/hide buttons after click */
+.hidden{
+    opacity:0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all .5s;
+}
+
+.show{
+    opacity:1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+@media(prefers-reduced-motion){
+    .hidden{
+        filter: none;
+        transition: none;
+    }
+}
+
+/************************************* Light theme *************************************/
+@media (prefers-color-scheme: light){
+
+    .new{
+        padding-bottom:8px;
+    }
+
+    .title{
+        position:absolute;
+        left: 20px;
+        color:white;
+    }
+
+    .header {
+        right:0px;
+        margin-bottom:20px;
+        background-color: #4f5a6c;
+        width: 100%;
+        height:50px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+    /*  */
+    input[type="checkbox"].toggle{
+        opacity: 0;
+        position: absolute;
+        left: -9000px;
+        top: -9000px;
+    }
+    /*  */
+    input[type="checkbox"].toggle + label{
+        position: relative;
+        display:flex;
+        font-size:16px;
+        cursor: pointer;
+        color:#cccccc;
+    }
+    /*  */
+    input[type="checkbox"].toggle + label::before{
+        content: "";
+        width: 2em;
+        height: 1em;
+        background-color:#2d2d2d;
+        border-radius:1em;
+        margin-right: .25em;
+    }
+    /*  */
+    input[type="checkbox"].toggle + label::after{
+        position:absolute;
+        left: .1em;
+        content: "";
+        width: .9em;
+        height: .9em;
+        background-color:gray;
+        border-radius:1em;
+        transition:300ms ease-in-out;
+    }
+
+    /*  */
+    input[type="checkbox"].toggle:checked + label::before{
+        background-color:#cad1ce;
+    }
+
+    /*  */
+    input[type="checkbox"].toggle:checked + label::after{ 
+        transform: translateX(1em);
+        background-color:#627e74;
+    }
+
+    /*  */
+    input[type="checkbox"].toggle:checked + label{
+        color: #627e74;
+    }
+
+    body{
+        height:300px;
+        background-color:#f9fcfb;
+        color:black;
+        width:400px;
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    }
+
+    section{
+        display:grid;
+        place-items: left;
+    }
+
+    .notes{
+        background-color:#cccccc;
+        border-radius:10px;
+        height: 200px;
+        margin-bottom:10px;
+        overflow-y: auto;
+    }
+
+    .notes-list{
+        padding-left:10px;
+        padding-top:10px;
+        padding-right:10px;
+    }
+
+    .copy{
+        color:rgb(255, 255, 255);
+        border-radius:10px;
+        height:30px;
+        width:100px;
+        border:0px;
+        background-color:#000000;
+        margin-top:11px;
+    }
+    .copy:hover{
+        cursor: pointer;
+        opacity:80%;
+    }
+
+    .clear{
+        color:white;
+        border-radius:10px;
+        height:30px;
+        width:100px;
+        border:0px;
+        background-color:#000000;
+        margin-top:11px;
+    }
+    .clear:hover{
+        cursor: pointer;
+        opacity:80%;
+    }
+
+    #copy-confirm{
+        color:#000000;
+    }
+}
+
+
+
+
+/************************************* Dark theme *************************************/
+@media (prefers-color-scheme: dark){
+
+    .new{
+        padding-bottom:8px;
+    }
+
+    .title{
+        position:absolute;
+        left: 20px;
+    }
+
+    .header {
+        right:0px;
+        margin-bottom:20px;
+        background-color: #4f5a6c;
+        width: 100%;
+        height:50px;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+    /*  */
+    input[type="checkbox"].toggle{
+        opacity: 0;
+        position: absolute;
+        left: -9000px;
+        top: -9000px;
+    }
+    /*  */
+    input[type="checkbox"].toggle + label{
+        position: relative;
+        display:flex;
+        font-size:16px;
+        cursor: pointer;
+        color:#cccccc;
+    }
+    /*  When unchecked - background of toggle  */
+    input[type="checkbox"].toggle + label::before{
+        content: "";
+        width: 2em;
+        height: 1em;
+        background-color:#101010;
+        border-radius:1em;
+        margin-right: .25em;
+    }
+
+    /* When unChecked - Toggle circle */
+    input[type="checkbox"].toggle + label::after{
+        position:absolute;
+        left: .1em;
+        content: "";
+        width: .9em;
+        height: .9em;
+        background-color:rgb(100, 100, 100);
+        border-radius:1em;
+        transition:300ms ease-in-out;
+    }
+
+    /* When checked background of toggle */
+    input[type="checkbox"].toggle:checked + label::before{
+        background-color:#8c8b8b;
+    }
+
+    /* When checked - toggle circle */
+    input[type="checkbox"].toggle:checked + label::after{ 
+        transform: translateX(1em);
+        background-color:rgb(255, 255, 255);
+    }
+
+    /*  Text next to toggle when on */
+    input[type="checkbox"].toggle:checked + label{
+        color: white;
+    }
+
+    body{
+        height:300px;
+        background-color:#4c4c4c;
+        color:white;
+        width:400px;
+        font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    }
+
+    section{
+        display:grid;
+        place-items: left;
+    }
+
+    .notes{
+        background-color:#262626;
+        border-radius:10px;
+        height: 200px;
+        margin-bottom:10px;
+        overflow-y: auto;
+    }
+
+    .notes-list{
+        padding-left:10px;
+        padding-top:10px;
+        padding-right:10px;
+    }
+
+    .copy{
+        color:rgb(0, 0, 0);
+        border-radius:10px;
+        height:30px;
+        width:100px;
+        border:0px;
+        background-color:#fdfdfd;
+        margin-top:11px;
+    }
+    .copy:hover{
+        cursor: pointer;
+        opacity:80%;
+    }
+
+    .clear{
+        color:rgb(0, 0, 0);
+        border-radius:10px;
+        height:30px;
+        width:100px;
+        border:0px;
+        background-color:#fdfdfd;
+        margin-top:11px;
+    }
+    .clear:hover{
+        cursor: pointer;
+        opacity:80%;
+    }
+
+    #copy-confirm{
+        color:#fefefe;
+    }
+}

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="popup.css"></style>
+    </head>
+
+<!-- <section class="header">
+    <h2 class="title unselectable">Notextension</h2>
+</section> -->
+<body id="body">
+
+    <div type="text" class="notes" id="notes" contenteditable>
+    </div>
+
+    <div class="new">
+        <input type="checkbox" id="check" class="toggle">
+        <label class="unselectable" for="check">Plaintext</label>
+    </div>
+
+    <input type="button" class="copy" id="copy" value="Copy">
+    <input type="button" class="clear" id="clear" value="Clear">
+
+    <h4 class="hidden" id="copy-confirm">The domains have been copied to your clipboard</h4>
+
+    <script src="popup.js"></script>
+</body>
+</html>
