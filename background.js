@@ -55,7 +55,6 @@ chrome.runtime.onMessage.addListener(
           systemState.plaintext = false
           chrome.storage.local.set({'systemState': systemState})
         }
-        sendResponse(systemState.notes)
       }
   }
 )

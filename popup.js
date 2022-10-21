@@ -8,7 +8,19 @@ let copy_confirm = document.getElementById('copy-confirm')
 
 // TODO: Display Notes
 function displayNotes(notes){
+    console.log(notes)
     notes_field.innerHTML= notes
+}
+
+function sanitize(string){
+
+    const pattern = new RegExp("\\<.*?\\>");
+
+    // Use regex_replace function in regex
+    // to erase every tags enclosed in <>
+    string = new String(string).replace(pattern, "");
+
+    return string
 }
 
 
@@ -38,7 +50,7 @@ chrome.runtime.sendMessage({action: 'update'}, (response)=>{
                 plaintext.checked = response.plaintext
                 displayNotes(response.notes)
             })
-          }, "300")
+          }, "400")
     }
 })
 
@@ -51,14 +63,16 @@ document.onkeypress = function (e) {
 
 // Tell background.js to update plaintext
 plaintext.addEventListener('change', async()=>{
-    chrome.runtime.sendMessage({action: 'plaintext', message:plaintext.checked}, (response)=>{
-        displayNotes(response.notes)
-    })
-
+    chrome.runtime.sendMessage({action: 'plaintext', message:plaintext.checked})
     if(plaintext.checked){
+        // Copy current text, and convert it to plain text (remove HTML elements)
+        raw = sanitize(notes_field.innerHTML)
+        displayNotes(raw)
         notes_field.setAttribute('contenteditable', 'plaintext-only')
+        
     }else{
         notes_field.setAttribute('contenteditable', 'True')
+        // Possibly revert back to richtext... but we would need to save what is was before... so probably will not implement this
     }
 
 })
