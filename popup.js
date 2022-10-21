@@ -18,8 +18,9 @@ function sanitize(string){
 
     // Use regex_replace function in regex
     // to erase every tags enclosed in <>
-    string = new String(string).replace(pattern, "");
-
+    for(let i = 0; i < string.length; i++){
+        string = new String(string).replace(pattern, "");
+    }
     return string
 }
 
