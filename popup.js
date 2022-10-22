@@ -8,7 +8,6 @@ let copy_confirm = document.getElementById('copy-confirm')
 
 // TODO: Display Notes
 function displayNotes(notes){
-    console.log(notes)
     notes_field.innerHTML= notes
 }
 
@@ -59,16 +58,19 @@ chrome.runtime.sendMessage({action: 'update'}, (response)=>{
 })
 
 // Whenever key is pressed, send data to background.js to save
-document.onkeypress = function (e) {
+notes_field.addEventListener('input', ()=>{
    setTimeout(() => {
         chrome.runtime.sendMessage({action: 'save', message:notes_field.innerHTML})
     }, 300);
-};
+});
+
+
 
 // Tell background.js to update plaintext
 plaintext.addEventListener('change', async()=>{
     chrome.runtime.sendMessage({action: 'plaintext', message:plaintext.checked})
     if(plaintext.checked){
+        console.log('HERE')
         // Copy current text, and convert it to plain text (remove HTML elements)
         raw = sanitize(notes_field.innerHTML)
         displayNotes(raw)
