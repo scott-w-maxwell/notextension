@@ -124,10 +124,11 @@ div[type=text] {
 
     .notes{
         background-color:#cccccc;
-        border-radius:10px;
+        border-radius:4px;
         height: 200px;
         margin-bottom:10px;
         overflow-y: auto;
+        outline: none;
     }
 
     .notes-list{
@@ -262,10 +263,11 @@ div[type=text] {
 
     .notes{
         background-color:#262626;
-        border-radius:10px;
+        border-radius:4px;
         height: 200px;
         margin-bottom:10px;
         overflow-y: auto;
+        outline: none;
     }
 
     .notes-list{
