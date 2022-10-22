@@ -52,6 +52,12 @@ chrome.runtime.sendMessage({action: 'update'}, (response)=>{
                 // Set toggle
                 plaintext.checked = response.plaintext
                 displayNotes(response.notes)
+
+                if(plaintext.checked){
+                    notes_field.setAttribute('contenteditable', 'plaintext-only')
+                }else{
+                    notes_field.setAttribute('contenteditable', 'True')
+                }
             })
           }, "400")
     }
