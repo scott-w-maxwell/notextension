@@ -81,10 +81,11 @@ plaintext.addEventListener('change', async()=>{
         raw = sanitize(notes_field.innerHTML)
         displayNotes(raw)
         notes_field.setAttribute('contenteditable', 'plaintext-only')
-        
+        chrome.runtime.sendMessage({action: 'save', message:notes_field.innerHTML})
     }else{
         notes_field.setAttribute('contenteditable', 'True')
         // Possibly revert back to richtext... but we would need to save what is was before... so probably will not implement this
+        chrome.runtime.sendMessage({action: 'save', message:notes_field.innerHTML})
     }
 
 })
