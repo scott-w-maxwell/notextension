@@ -28,8 +28,6 @@ function sanitize(string){
 chrome.runtime.sendMessage({action: 'update'}, (response)=>{
 
     if(response.notes.length != 0){
-        console.log(response.notes)
-        console.log('Retrieving notes')
         
         // Update toggle
         plaintext.checked = response.plaintext
@@ -42,7 +40,6 @@ chrome.runtime.sendMessage({action: 'update'}, (response)=>{
         }
         
     }else{
-        console.log('Try retrieving notes again')
         // Try again to retrieve Notes
         // This happens when the extension wakes up from sleep, and the systemState is not restored quickly enough
         setTimeout(() => {
@@ -76,15 +73,15 @@ notes_field.addEventListener('input', ()=>{
 plaintext.addEventListener('change', async()=>{
     chrome.runtime.sendMessage({action: 'plaintext', message:plaintext.checked})
     if(plaintext.checked){
-        console.log('HERE')
+
         // Copy current text, and convert it to plain text (remove HTML elements)
         raw = sanitize(notes_field.innerHTML)
         displayNotes(raw)
         notes_field.setAttribute('contenteditable', 'plaintext-only')
         chrome.runtime.sendMessage({action: 'save', message:notes_field.innerHTML})
+
     }else{
         notes_field.setAttribute('contenteditable', 'True')
-        // Possibly revert back to richtext... but we would need to save what is was before... so probably will not implement this
         chrome.runtime.sendMessage({action: 'save', message:notes_field.innerHTML})
     }
 

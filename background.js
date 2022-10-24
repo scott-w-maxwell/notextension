@@ -19,7 +19,6 @@ chrome.storage.local.get('systemState', function(result) {
   }else{
     console.log('systemState set from storage')
     
-    console.log(result.systemState)
     systemState.notes = result.systemState.notes
 
   }

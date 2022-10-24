@@ -141,9 +141,9 @@ div[type=text] {
         color:rgb(255, 255, 255);
         border-radius:10px;
         height:30px;
-        width:100px;
+        width:6ex;
         border:0px;
-        background-color:#000000;
+        background-color:#517044;
         margin-top:11px;
     }
     .copy:hover{
@@ -155,9 +155,9 @@ div[type=text] {
         color:white;
         border-radius:10px;
         height:30px;
-        width:100px;
+        width:60px;
         border:0px;
-        background-color:#000000;
+        background-color:#517044;
         margin-top:11px;
     }
     .clear:hover{
@@ -277,12 +277,12 @@ div[type=text] {
     }
 
     .copy{
-        color:rgb(0, 0, 0);
+        color:rgb(241, 237, 237);
         border-radius:10px;
         height:30px;
-        width:100px;
+        width:60px;
         border:0px;
-        background-color:#fdfdfd;
+        background-color:#517044;
         margin-top:11px;
     }
     .copy:hover{
@@ -291,12 +291,12 @@ div[type=text] {
     }
 
     .clear{
-        color:rgb(0, 0, 0);
+        color:rgb(255, 255, 255);
         border-radius:10px;
         height:30px;
-        width:100px;
+        width:60px;
         border:0px;
-        background-color:#fdfdfd;
+        background-color:#517044;
         margin-top:11px;
     }
     .clear:hover{
